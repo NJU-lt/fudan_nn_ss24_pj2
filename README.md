@@ -14,7 +14,7 @@ python tools/train.py configs/faster_rcnn/faster_rcnn_r50_fpn_1x_voc.py
 
 ## faster rcnn 测试
 python tools/test.py configs/faster_rcnn/faster_rcnn_r50_fpn_1x_voc.py
-work_dirs/faster_rcnn_r50_fpn_1x_voc/epoch_9.pth --out results.pkl
+work_dirs/faster_rcnn_r50_fpn_1x_voc/epoch_16.pth --out results.pkl
 
 ## yolov3 训练
 python tools/train.py configs/yolo/yolov3_d53_8xb8-ms-416-273e_coco.py
