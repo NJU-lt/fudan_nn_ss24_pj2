@@ -240,4 +240,6 @@ class TwoStageDetector(BaseDetector):
 
         batch_data_samples = self.add_pred_to_datasample(
             batch_data_samples, results_list)
+        for nn in range(len(batch_data_samples)):
+            batch_data_samples[nn].rpn_res = rpn_results_list[nn]
         return batch_data_samples

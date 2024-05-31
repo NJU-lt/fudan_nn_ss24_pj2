@@ -1,5 +1,9 @@
 _base_ = './yolov3_d53_8xb8-ms-608-273e_coco.py'
+_base_.visualizer.vis_backends = [
+    dict(type='LocalVisBackend'), #
+    dict(type='TensorboardVisBackend'),]
 
+load_from = '/root/Test/MM_detection/mmdetection/pretrain_model/yolov3_d53_mstrain-416_273e_coco-2b60fcd9.pth'
 train_pipeline = [
     dict(type='LoadImageFromFile', backend_args={{_base_.backend_args}}),
     dict(type='LoadAnnotations', with_bbox=True),
@@ -26,3 +30,29 @@ test_pipeline = [
 train_dataloader = dict(dataset=dict(pipeline=train_pipeline))
 val_dataloader = dict(dataset=dict(pipeline=test_pipeline))
 test_dataloader = val_dataloader
+
+
+
+# _base_ = './yolov3_d53_320_273e_coco.py'
+# model = dict(
+#     backbone=dict(depth=53),
+#     bbox_head=dict(num_classes=80))
+
+# # 预训练模型权重路径
+# load_from = 'path_to_your_pretrained_weights.pth'
+
+# # 数据集路径
+# data_root = 'path_to_your_coco_dataset/'
+
+# # 数据集设置
+# data = dict(
+#     train=dict(
+#         ann_file=data_root + 'annotations/instances_train2017.json',
+#         img_prefix=data_root + 'train2017/'),
+#     val=dict(
+#         ann_file=data_root + 'annotations/instances_val2017.json',
+#         img_prefix=data_root + 'val2017/'),
+#     test=dict(
+#         ann_file=data_root + 'annotations/instances_val2017.json',
+#         img_prefix=data_root + 'val2017/')
+# )

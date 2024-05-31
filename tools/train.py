@@ -2,6 +2,7 @@
 import argparse
 import os
 import os.path as osp
+import torch
 
 from mmengine.config import Config, DictAction
 from mmengine.registry import RUNNERS
@@ -58,6 +59,7 @@ def parse_args():
 
 
 def main():
+    torch.cuda.set_device(4)
     args = parse_args()
 
     # Reduce the number of repeated compilations and improve

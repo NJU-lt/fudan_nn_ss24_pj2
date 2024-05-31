@@ -83,7 +83,7 @@ def cvt_annotations(devkit_path, years, split, out_file):
             for img_name in img_names
         ]
         img_paths = [
-            f'VOC{year}/JPEGImages/{img_name}.jpg' for img_name in img_names
+            f'{img_name}.jpg' for img_name in img_names
         ]
         part_annotations = track_progress(parse_xml,
                                           list(zip(xml_paths, img_paths)))
